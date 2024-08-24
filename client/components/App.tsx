@@ -1,28 +1,12 @@
-import { useState } from 'react'
-import { getGreeting } from '../apiClient.ts'
-import { useQuery } from '@tanstack/react-query'
-
-const App = () => {
-  const [count, setCount] = useState(0)
-
-  const {
-    data: greeting,
-    isError,
-    isPending,
-  } = useQuery({ queryKey: ['greeting', count], queryFn: getGreeting })
-
-  if (isPending) return <p>Loading...</p>
-
+function App() {
   return (
     <>
-      {count}
-      <h1>{greeting}</h1>
-      {isError && (
-        <p style={{ color: 'red' }}>
-          There was an error retrieving the greeting.
-        </p>
-      )}
-      <button onClick={() => setCount(count + 1)}>Click</button>
+      <div className="title">
+        <h1>Georgia&apos;s Bookshelf</h1>
+      </div>
+      <div className="clicktext">
+        <h2>Click Here</h2>
+      </div>
     </>
   )
 }

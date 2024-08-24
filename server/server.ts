@@ -1,15 +1,11 @@
 import * as Path from 'node:path'
 import express from 'express'
+import books from './routes/books.ts'
 import cors, { CorsOptions } from 'cors'
 
 const server = express()
 
-server.get('/api/v1/greeting', (req, res) => {
-  const greetings = ['hola', 'hi', 'hello', 'howdy']
-  const index = Math.floor(Math.random() * greetings.length)
-  console.log(index)
-  res.json({ greeting: greetings[index] })
-})
+server.use('/api/v1/books', books)
 
 server.use(express.json())
 server.use(cors('*' as CorsOptions))
