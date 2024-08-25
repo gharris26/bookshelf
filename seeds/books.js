@@ -4,8 +4,8 @@
  */
 export async function seed(knex) {
   // Deletes ALL existing entries
-  await knex('table_name').del()
-  await knex('table_name').insert([
+  await knex('books').del()
+  await knex('books').insert([
     {
       id: 1,
       title: 'Pride and Prejudice',
